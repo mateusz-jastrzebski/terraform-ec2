@@ -59,3 +59,55 @@ sudo ./aws/install
 ```
 
 ### 3. Obtain a Cloudflare managed domain
+
+### 4. Create a SSL Flexible Root Configuration Rule on Cloudflare (only if you have chosen Full SSL setting)
+
+## How to run
+
+### 1. Clone repository
+
+```
+git clone git@github.com:mateusz-jastrzebski/terraform-ec2.git
+```
+
+### 2. Create `terraform.tfvars` file inside the directory
+
+```
+cd terraform-ec2/
+touch terraform.tfvars
+```
+
+### 3. Fill the file with needed content
+
+```
+aws_region = "my_aws_region"
+aws_access_key = "my_aws_access_key"
+aws_secret_key = "my_aws_secret_key"
+
+cloudflare_email = "my_email_address"
+cloudflare_zone_id = "my_cloudflare_zone_id"
+cloudflare_api_token = "my_cloudflare_api_token"
+
+key_name = "my_aws_private_key_name"
+user_name = "my_name"
+```
+
+### 4. Run Terraform commands inside the directory
+
+```
+terraform init
+```
+
+```
+terraform plan
+```
+
+```
+terraform apply
+```
+
+Enter `yes` when prompted after apply.
+
+## Verify website is running
+
+After around 30 seconds access `https://ec2-test.example.com` in your browser
